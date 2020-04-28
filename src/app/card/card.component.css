@@ -1,0 +1,35 @@
+mat-card {
+  border-radius: 25px;
+  background: #4CAF50;
+  width: 20%;
+  height: 50%;
+  left: 40%;
+  top:20%;
+  background: #4CAF50;
+  padding: 20px;
+}
+
+.mat-card-title {
+  left: 50%;
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+}
+
+.mat-card-subtitle {
+  left: 50%;
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+}
+
+.mat-card-content {
+  font-family: "Source Code Pro", monospace;
+}
+
+.card-image {
+  position: relative;
+  left: 25%;
+  height: 150px;
+  width: 150px;
+  align-items: center;
+  border-radius: 50%;
+}
