@@ -1,9 +1,18 @@
-<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;0,900;1,400&display=swap"
+      rel="stylesheet">
+<div class="content">
   <app-card *ngFor="let card of cards"
-  [title]="card.title"
-  [subtitle]="card.subtitle"
-  [description]="card.description"
-  [img]="card.img"
-  [isFront]="card.isFront"
-  [isPrimary]="card.isPrimary"></app-card>
-
+            [title]="card.title"
+            [subtitle]="card.subtitle"
+            [description]="card.description"
+            [img]="card.img"
+            [isFront]="card.isFront"
+            [isPrimary]="card.isPrimary"
+            [hidden]="!card.isFront"
+            style="padding: 20px;"></app-card>
+</div>
+<div class="navigation">
+  <div class="card" style="height: 100%;">
+    Test
+  </div>
+</div>

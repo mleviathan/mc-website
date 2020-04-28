@@ -1,35 +1,31 @@
 mat-card {
   border-radius: 25px;
   background: #4CAF50;
-  width: 20%;
-  height: 50%;
-  left: 40%;
-  top:20%;
-  background: #4CAF50;
-  padding: 10%;
+  width: 300px;
+  height: 450px;
+  padding: 20px;
+  left:40%;
 }
 
-.mat-card-title {
-  left: 50%;
+mat-card-title {
   text-align: center;
   font-family: "Source Code Pro", monospace;
 }
 
-.mat-card-subtitle {
-  left: 50%;
+mat-card-subtitle {
   text-align: center;
   font-family: "Source Code Pro", monospace;
 }
 
-.mat-card-content {
+mat-card-content {
   font-family: "Source Code Pro", monospace;
 }
 
 .card-image {
   position: relative;
-  left: 25%;
   height: 150px;
   width: 150px;
-  align-items: center;
+  left:20%;
+  background-size: contain;
   border-radius: 50%;
 }
