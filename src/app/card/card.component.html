@@ -1,16 +1,18 @@
-<mat-card>
-  <img class="card-image" src="{{img}}">
-  <mat-card-header>
+<mat-card *ngIf="card.isFront">
+  <img class="card-image"
+       src="{{card.img}}"
+       *ngIf="card.img">
+<!--  <mat-card-header>-->
     <mat-card-title>
-      <p>{{title}}</p>
+      <p>{{card.title}}</p>
     </mat-card-title>
     <mat-card-subtitle>
-      {{subtitle}}
+      {{card.subtitle}}
     </mat-card-subtitle>
-  </mat-card-header>
+<!--  </mat-card-header>-->
   <mat-card-content>
     <p>
-      {{description}}
+      {{card.description}}
     </p>
   </mat-card-content>
 </mat-card>

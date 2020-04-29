@@ -1,18 +1,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;0,900;1,400&display=swap"
       rel="stylesheet">
-<div class="content">
-  <app-card *ngFor="let card of cards"
-            [title]="card.title"
-            [subtitle]="card.subtitle"
-            [description]="card.description"
-            [img]="card.img"
-            [isFront]="card.isFront"
-            [isPrimary]="card.isPrimary"
-            [hidden]="!card.isFront"
-            style="padding: 20px;"></app-card>
-</div>
-<div class="navigation">
-  <div class="card" style="height: 100%;">
-    Test
-  </div>
-</div>
+<mat-drawer-container style="height: 100vh">
+  <mat-drawer mode="side" position="start" opened>
+    <mat-list>
+      <mat-list-item *ngFor="let cardElem of cards">
+        <app-navelement *ngIf="cardElem"
+                        [cardTitle]="cardElem.title"
+                        (onElementSelected)="changeChard($event)"></app-navelement>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div>
+      <app-card [card]="currCardModel"
+                style="padding: 20px;"></app-card>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

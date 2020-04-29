@@ -1,8 +1,11 @@
-content {
-  height: 75%;
-  float: bottom;
+mat-drawer, mat-drawer-container {
+  background-color: transparent;
 }
-
-navigation {
-  float: bottom;
+.mat-drawer-side {
+  border-right: transparent;
+}
+mat-card-header div {
+  background-color: #736ba0;
+  width: 100%;
+  margin: 0px;
 }
