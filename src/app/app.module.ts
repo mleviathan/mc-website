@@ -7,20 +7,22 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {CardComponent} from './card/card.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
-import { NavelementComponent } from './navelement/navelement.component';
+import { NavElementComponent } from './nav-element/nav-element.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    NavelementComponent,
+    NavElementComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

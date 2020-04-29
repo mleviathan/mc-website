@@ -1,15 +1,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;0,900;1,400&display=swap"
       rel="stylesheet">
 <mat-drawer-container style="height: 100vh">
-  <mat-drawer mode="side" position="start" opened>
-    <mat-list>
-      <mat-list-item *ngFor="let cardElem of cards">
-        <app-navelement *ngIf="cardElem"
-                        [cardTitle]="cardElem.title"
-                        (onElementSelected)="changeChard($event)"></app-navelement>
-      </mat-list-item>
-    </mat-list>
-  </mat-drawer>
+<!--  <mat-drawer mode="side" position="start" opened style="width: 10vw; top: 10%;">-->
+<!--    <div *ngFor="let cardElem of cards" >-->
+<!--      <app-navelement *ngIf="cardElem"-->
+<!--                      [cardTitle]="cardElem.title"-->
+<!--                      (onElementSelected)="changeChard($event)"></app-navelement>-->
+<!--    </div>-->
+<!--  </mat-drawer>-->
   <mat-drawer-content>
     <div>
       <app-card [card]="currCardModel"

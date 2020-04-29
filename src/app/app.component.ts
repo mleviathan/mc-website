@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CardComponent} from './card/card.component';
 import {CardModel} from './card.model';
+import {MatIconRegistry} from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit {
   public currCardModel: CardModel;
   public cards = Array<CardModel>();
 
-  constructor() {
+  constructor(private matIconRegistry: MatIconRegistry) {
     this.cards = [
       {
         title: 'Michele Cafagna',
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  changeChard(newCardName: string): void {
+  changeCard(newCardName: string): void {
     const cardIndex = this.cards.findIndex((el) => {
       return el.title === newCardName;
     });
@@ -47,5 +48,8 @@ export class AppComponent implements OnInit {
       console.log('Card not found');
     }
 
+  }
+
+  addIcons(): void {
   }
 }
