@@ -1,18 +1,31 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CardComponent} from './card/card.component';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {CardModel} from './card.model';
-import {MatIconRegistry} from '@angular/material/icon';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('cardState', [
+        state('normal', style({
+          opacity: '1'
+        })),
+        state('invisible', style({
+          opacity: '0'
+        })),
+        transition('normal => invisible', animate(500)),
+        transition('invisible => normal', animate(500)),
+      ]
+    )
+  ]
 })
 export class AppComponent implements OnInit {
   public currCardModel: CardModel;
   public cards = Array<CardModel>();
+  state = 'normal';
 
-  constructor(private matIconRegistry: MatIconRegistry) {
+  constructor() {
     this.cards = [
       {
         title: 'Michele Cafagna',
@@ -38,18 +51,32 @@ export class AppComponent implements OnInit {
 
   }
 
-  changeCard(newCardName: string): void {
+  @HostListener('click', ['$event.target'])
+  onWindowScroll(event: any): void {
+    this.state = 'invisible';
+  }
+
+  changeCard(): void {
     const cardIndex = this.cards.findIndex((el) => {
-      return el.title === newCardName;
+      return el.title === this.currCardModel.title;
     });
-    if (cardIndex !== undefined) {
-      this.currCardModel = this.cards[cardIndex];
-    } else {
-      console.log('Card not found');
+
+    const nextElementIndex = cardIndex + 1;
+
+    if (this.cards[nextElementIndex] !== undefined) {
+      this.currCardModel = this.cards[nextElementIndex];
     }
+  }
+
+  onCardAnimationStart(): void {
 
   }
 
-  addIcons(): void {
+  onCardAnimationEnd(): void {
+    if (this.state === 'invisible') {
+      // going from Normal to invisible
+      this.state = 'normal';
+      this.changeCard();
+    }
   }
 }
